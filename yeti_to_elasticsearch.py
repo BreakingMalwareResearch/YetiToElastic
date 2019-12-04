@@ -272,20 +272,20 @@ def main():
                             excluded_feeds=("AsproxTracker", "UrlHaus"),
                             elastic_user="ChenErlich",
                             elastic_pass="YETI",
-                            elastic_use_ssl=True)
+                            elastic_use_ssl)
                         sender.extract_and_send()
 
              '''))
     parser.add_argument('--elastic_index', type=str, default="yeti-feeds", help='Elastic Stack index name')
     parser.add_argument('--excluded_feeds', type=set, default=set(), help='Set of feeds to exclude from indexing')
-    parser.add_argument('--mongo_hostname', type=str, help='Mongodb hostname')
+    parser.add_argument('--mongo_hostname', type=str, default="localhost", help='Mongodb hostname')
     parser.add_argument('elastic_hostname', type=str, help='Elastic Stack hostname/ip')
     parser.add_argument('--elastic_port', type=int, default=9200, help='Elastic Stack index name')
     parser.add_argument('--elastic_user', type=str, help='Elastic Stack user')
     parser.add_argument('--elastic_pass', type=str, help='Elastic Stack password')
-    parser.add_argument('--elastic_use_ssl', type=bool,
+    parser.add_argument('--elastic_use_ssl', action="store_true", default=False,
                         help='Flag to determine if the connection to Elastic Stack should use SSL')
-    parser.add_argument('--elastic_verify_certs', type=bool,
+    parser.add_argument('--elastic_verify_certs', action="store_true", default=False,
                         help='Flag to determine if the connection to Elastic Stack should verify the certificate')
     try:
         args = parser.parse_args()
