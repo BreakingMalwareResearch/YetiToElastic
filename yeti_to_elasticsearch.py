@@ -1,4 +1,4 @@
-# Author: Chen Erlich
+# Author: Chen Erlich (Twitter - @chen_erlich)
 # YETI Version: 1
 # Elastic Stack Version: 6.7
 
